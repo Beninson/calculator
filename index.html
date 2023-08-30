@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+        <title>
+            Menu bar
+        </title>
+        <style>
+            *{
+                margin: 0%;
+                padding: 0%;
+                font-family: 'Open Sans', sans-serif;
+                
+            }
+            
+            body{
+                /*animation: slide1 20s infinite;*/
+                background-image: linear-gradient(90deg,rgb(123, 255, 0),rgb(0, 255, 38),rgb(0, 255, 162),rgb(0, 0, 0)100%);
+            }
+            @keyframes slide1{
+               
+                0%{
+                    background-image: linear-gradient(90deg,rgb(123, 255, 0),rgb(0, 255, 38),rgb(0, 255, 162),rgb(0, 0, 0)100%);
+                }
+                50%{
+                    background-image: linear-gradient(90deg,rgb(0, 0, 0),rgb(123, 255, 0),rgb(123, 255, 0),rgb(0, 255, 162)100%);
+                    }
+                75%{
+                    background-image: linear-gradient(90deg,rgb(0, 255, 162),rgb(0, 0, 0),rgb(123, 255, 0),rgb(123, 255, 0)100%) ;
+                    } 
+                100%{
+                    background-image: linear-gradient(90deg,rgb(0, 255, 162),rgb(123, 255, 0),rgb(0, 0, 0),rgb(123, 255, 0)100%) ;
+                }
+                 
+            }
+            
+            label{
+                width: 200px;
+                display: inline-block;
+                padding: 2px;
+            }
+            .button{
+                padding: 2px;
+                margin: 3px;
+                margin-left: 50%;
+                background-color: brown;
+                color: rgb(0, 0, 0);
+                border-radius: 5px;
+                border: 2px solid;
+
+            }
+            .button:hover{
+                background-color: rgb(0, 0, 0);
+                color: brown;
+            }
+            .all{
+                margin: 2%;
+                margin-left: 35%;
+                margin-right: 25%;
+                border: 3px solid gray;
+                border-radius: 10px;
+                padding: 2%;
+               
+                box-shadow: black 20px 20px 20px 20px;
+                animation: slide2 10s infinite;
+            }
+            @keyframes slide2 {
+                0%{
+                    background-color: wheat;
+                }
+                50%{
+                    background-color:rgb(245, 179, 210) ;
+                }
+                100%{
+                    background-color:rgb(179, 245, 209)
+                }
+            }
+            .res{
+                color: red;
+                font-size: 20px;
+            }
+            input{
+                border-radius: 5px;
+                padding: 2px;
+                margin: 3px;
+            }
+            label{
+                font-size: 20px;
+            }
+            h1{
+                border: 2px solid aliceblue;
+                border-radius: 5px;
+                padding: 3px;
+                padding-left: 10px;
+                background-color: brown;
+                color: aliceblue;
+                font-size: 25px;
+                
+            }
+            
+
+        </style>
+    </head>
+    <body>
+       <div class="all">
+        <h1>Simple Interest Calculator</h1>
+        <div>
+        <label>Principal:</label>
+        <input type="text" id="c2" placeholder="Enter value"><br>
+        <label>Rate:</label>
+        <input type="text" id="c3" placeholder="Enter value"><br>
+        <label>Time:</label>
+        <input type="text" id="c4" placeholder="Enter value"><br>
+        <input class="button" type="button" value="Calculate SI" onclick="b1()">
+        </div>
+        <div  class="res" id="c1"><b>Your Simple interest is :</b></div>
+        <br><br>
+        <h1>Compound Interest Calculator</h1>
+        <div>
+        <label>Principal:</label>
+        <input type="text" id="c5" placeholder="Enter value"><br>
+        <label>Rate:</label>
+        <input type="text" id="c6" placeholder="Enter value"><br>
+        <label>Time:</label>
+        <input type="text" id="c7" placeholder="Enter value"><br>
+        <label>No. of Times Compounded per year:</label>
+        <input type="text" id="c8" placeholder="Enter value"><br>
+        <input class="button" type="button" value="Calculate CI" onclick="b2()">
+        </div>
+        <div class="res" id="op"><b>Your compount interest is :</b></div><br><br>
+        <h1 >EMI Calculator</h1>
+        <div>
+            
+            <label>Principal:</label>
+            <input type="text" id="c10" placeholder="Enter value"><br>
+            <label>Rate:</label>
+            <input type="text" id="c11" placeholder="Enter value"><br>
+            <label>Loan term or tenure in months:</label>
+            <input type="text" id="c12" placeholder="Enter value"><br>
+            <input class="button" type="button" value="Calculate EMI" onclick="b3()"><br>
+            <label class="res">Your EMI is:</label>
+            <input  type="text" id="c13" placeholder="Your EMI"><br>
+            </div>
+        </div>  
+    </body>
+    <script>
+        function    b1(){
+            let p=parseInt(document.getElementById("c2").value)
+            let r=parseInt(document.getElementById("c3").value)
+            let t=parseInt(document.getElementById("c4").value)
+            let r1=r/100
+            let si=p*r1*t
+            console.log(si)
+            document.getElementById("c1").innerHTML="Your Simple interest is: "+Math.floor(si);
+        }
+        function    b2(){
+            let p=parseInt(document.getElementById("c5").value)
+            let r=parseInt(document.getElementById("c6").value)
+            let t=parseInt(document.getElementById("c7").value)
+            let n=parseInt(document.getElementById("c8").value)
+            let r1=r/100
+            let ci=p*Math.pow((1+(r1/n)),(n*t))
+            console.log(ci)
+            document.getElementById("op").innerHTML="Your compount interest is: "+Math.floor(ci);
+        }
+        function    b3(){
+            let p=parseInt(document.getElementById("c10").value)
+            let r=parseInt(document.getElementById("c11").value)
+            let n=parseInt(document.getElementById("c12").value)
+            let r1=(r/12)/100
+            let E =p*r1* (Math.pow((1+r1),n)) /( (Math.pow((1+r1),n))-1 )
+            console.log(E)
+            document.getElementById("c13").value="Your EMI Is"+Math.floor(E);
+        }
+    </script>
+</html>
+
